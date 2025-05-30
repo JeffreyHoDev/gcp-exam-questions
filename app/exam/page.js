@@ -287,7 +287,9 @@ export default function ExamPage() {
             <div className={styles.exam_page_section}>
               {error ? <div><Alert severity="error">Encounter some error, message: <p>{error.message}</p></Alert></div> : null}
               <div>
-                <p className={styles.legend}>Once you have answer a question, an <span style={{'color': '#F97A00'}}>orange</span> dot will appear. Use this as indicator on your progress</p>
+                <p className={styles.legend}>
+                  Once you have answered a question, an <span style={{ color: '#F97A00' }}>orange</span> dot will appear. Use this as an indicator of your progress.
+                </p>
 
                 {
                   questions.length > 0 ? (

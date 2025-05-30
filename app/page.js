@@ -21,7 +21,7 @@ export default function Home() {
         <h2>IMPORTANT</h2>
         <ul>
           <li>It is recommended to use a desktop instead of a mobile device, as some questions involve images that may not display well on mobile screens.</li>
-          <li>Clicking 'Go back' in the browser will reset all questions. Please avoid doing this while attempting the exam</li>
+          <li>Clicking &apos;Go back&apos; in the browser will reset all questions. Please avoid doing this while attempting the exam</li>
           <li>Clicking the submit button will move to the score calculation stage, so ensure you have attempted all questions before submitting</li>
         </ul>
       </div>
