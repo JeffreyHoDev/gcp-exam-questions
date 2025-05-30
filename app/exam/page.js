@@ -141,7 +141,6 @@ export default function ExamPage() {
 
   useEffect(() => {
     localStorage.setItem("questions", JSON.stringify(questions))
-    console.log(questions)
   }, [questions]);
 
   const handleMultipleChoices = ( question_index, option_index) => {
@@ -287,10 +286,11 @@ export default function ExamPage() {
             <div className={styles.exam_page_section}>
               {error ? <div><Alert severity="error">Encounter some error, message: <p>{error.message}</p></Alert></div> : null}
               <div>
-                <p className={styles.legend}>
-                  Once you have answered a question, an <span style={{ color: '#F97A00' }}>orange</span> dot will appear. Use this as an indicator of your progress.
-                </p>
-
+                {error ? null : (
+                  <p className={styles.legend}>
+                    Once you have answered a question, an <span style={{ color: '#F97A00' }}>orange</span> dot will appear. Use this as an indicator of your progress.
+                  </p>
+                )}
                 {
                   questions.length > 0 ? (
                     <Box
@@ -422,15 +422,19 @@ export default function ExamPage() {
                 ) : null
               }
             </div>
-            <div className={styles.button_grouping}>
-              {number !== 0 ? <button className={styles.prevBtn} sx={{width: {xs: 100, sm: 200, md: 300, lg: 300}}} variant="contained" onClick={() => setNumber(number-1)}>Previous</button> : <div></div>}
-              {number !== questions.length-1 ?<button className={styles.nextBtn} sx={{width: {xs: 100, sm: 200, md: 300, lg: 300}}} variant="contained" onClick={() => setNumber(number+1)}>Next</button> :  <div></div>}
-            </div>
-            <div className={styles.submit_btn_section}>
-              {
-                submitted ? <button className={styles.submit_btn} onClick={() => resetAllData()}>Try again</button> : <button className={styles.submit_btn} onClick={() => handlePromptOpen()}>Submit</button>
-              }
-            </div>
+            {error ? null : (
+              <div className={styles.button_grouping}>
+                {number !== 0 ? <button className={styles.prevBtn} sx={{width: {xs: 100, sm: 200, md: 300, lg: 300}}} variant="contained" onClick={() => setNumber(number-1)}>Previous</button> : <div></div>}
+                {number !== questions.length-1 ?<button className={styles.nextBtn} sx={{width: {xs: 100, sm: 200, md: 300, lg: 300}}} variant="contained" onClick={() => setNumber(number+1)}>Next</button> :  <div></div>}
+              </div>
+            )}
+            {error ? null : (
+              <div className={styles.submit_btn_section}>
+                {
+                  submitted ? <button className={styles.submit_btn} onClick={() => resetAllData()}>Try again</button> : <button className={styles.submit_btn} onClick={() => handlePromptOpen()}>Submit</button>
+                }
+              </div>
+            )}
             <div><ResultModal calculatingScore={calculatingScore} open={open} scoreResult={scoreResult} handleClose={handleClose} resetAllData={resetAllData}/></div>
             <div><PromptModal setIsSubmitted={setIsSubmitted} promptOpen={promptOpen} handlePromptClose={handlePromptClose}/></div>
           </div>
