@@ -252,6 +252,18 @@ a.secondary {
   justify-content: center;
 }
 
+.loading_info {
+  padding: .9rem;
+}
+
+.loading_support a {
+  text-decoration: underline;
+  text-decoration-thickness: 2px; /* optional */
+  text-underline-offset: 2px;     /* optional */
+  padding: .9rem;
+  color: #4361ee;
+}
+
 .optionImageLabel {
   padding-bottom: 1rem;
   border-radius: 8px;

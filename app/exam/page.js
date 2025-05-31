@@ -281,7 +281,7 @@ export default function ExamPage() {
   return (
     <div>
       {
-        isFetching ? <div className={styles.loading}><CircularProgress color="inherit" /><h3>Fetching Questions...</h3></div> : (
+        isFetching ? <div className={styles.loading}><CircularProgress color="inherit" /><h3 className={styles.loading_info}>Fetching Questions...</h3><h3 className={styles.loading_info}>This might take some time... (Free tier backend service is in use)</h3><p className={styles.loading_support}><a href="mailto:jeffreyhodev@gmail.com">For support contact: jeffreyhodev@gmail.com</a></p></div> : (
           <div>
             <div className={styles.exam_page_section}>
               {error ? <div><Alert severity="error">Encounter some error, message: <p>{error.message}</p></Alert></div> : null}
