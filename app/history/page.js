@@ -36,7 +36,7 @@ export default function HistoryListPage() {
     const register = async () => {
         setIsRegistering(true);
         try {
-            const response = await fetch(`http://${process.env.NEXT_PUBLIC_BACKEND}/register_identifier`, {
+            const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/register_identifier`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ export default function HistoryListPage() {
     const login = async () => {
         setIsLoggingIn(true);
         try {
-            const response = await fetch(`http://${process.env.NEXT_PUBLIC_BACKEND}/login`, {
+            const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export default function HistoryListPage() {
         
         const getHistoryList = async () => {
             try {
-                const response = await fetch(`http://${process.env.NEXT_PUBLIC_BACKEND}/get_history_list`, {
+                const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/get_history_list`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

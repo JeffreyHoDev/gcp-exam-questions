@@ -149,7 +149,7 @@ export default function HistoryDetailPage () {
     useEffect(() => {
         const fetchHistoryDetail = async () => {
             try {
-                const response = await fetch(`http://${process.env.NEXT_PUBLIC_BACKEND}/historyDetails`, {
+                const response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/historyDetails`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

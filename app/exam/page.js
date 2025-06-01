@@ -80,7 +80,7 @@ export default function ExamPage() {
   const getData = async () => {
     setIsFetching(true)
     try {
-      let response = await fetch(`http://${process.env.NEXT_PUBLIC_DEV_BACKEND}/`)
+      let response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/`)
       let data = await response.json()
       setQuestions(data)
       setIsFetching(false)
@@ -109,7 +109,7 @@ export default function ExamPage() {
   const saveQuestions = async (identifier) => {
     setIsSavingQuestions(true)
     try {
-      let response = await fetch(`http://${process.env.NEXT_PUBLIC_DEV_BACKEND}/save_questions`, {
+      let response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/save_questions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
