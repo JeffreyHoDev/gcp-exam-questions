@@ -1,0 +1,443 @@
+.historyListPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+}
+
+.backHomeLink {
+  position: fixed;
+  top: 20px;
+  left: 30px;
+  z-index: 9999;
+  background: #fff;
+  color: #1976d2;
+  padding: 0.5em 1.2em;
+  border-radius: 1.5em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  text-decoration: underline;
+  transition: background 0.2s, color 0.2s;
+}
+
+.backHomeLink:hover {
+  background: #1976d2;
+  color: #fff;
+  text-decoration: none;
+}
+
+.title {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.loginInput,
+.registerInput {
+  width: 100%;
+  max-width: 340px;
+  font-size: 1rem;
+  padding: 18px 14px 8px 14px;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  background: #f5f5f5;
+  box-shadow: 0 2px 0 0 #1976d2;
+  margin-bottom: 1.2rem;
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: black;
+}
+
+.loginInput:focus,
+.registerInput:focus {
+  background: #e3f2fd;
+  box-shadow: 0 2px 0 0 #1565c0;
+  color: black;
+}
+
+.loginInput::placeholder,
+.registerInput::placeholder {
+  color: #757575;
+  font-size: 1rem;
+  opacity: 1;
+}
+
+.notLoginSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  width: 100%;
+  min-width: 0; /* Allow shrinking */
+  box-sizing: border-box;
+}
+
+.loginInputSection {
+
+    display: flex;
+    padding: 1.3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginInput {
+    background-color: #f5f5f5;
+    width: 18rem;
+}
+
+.loginBtn {
+    margin-left: 1rem;
+    margin-bottom: .8rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 8rem;
+}
+
+.registerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.registerText {
+  padding: 1.2rem;
+  text-decoration: underline;
+}
+
+.registerNotes {
+    font-size: 1.2rem;
+}
+
+.registerNoteItem {
+    padding: 1.1rem;
+}
+
+.registerInputSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.3rem;
+    width: 100%;
+}
+
+.registerInputFieldsGroup {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.registerInput {
+    background-color: #f5f5f5;
+    width: 16rem;
+    margin-right: .5rem;
+}
+
+.registerBtn {
+    padding: 0.5rem 1rem;
+    margin-top: 1.1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 10rem;
+}
+
+.disableBtn {
+    background-color: grey;
+    cursor: default;
+}
+
+.historyListTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007bff;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.identifier {
+    text-decoration: underline;
+}
+
+.historyList {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.historyCard {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.07);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.historyCard:hover {
+  box-shadow: 0 6px 24px rgba(30, 64, 175, 0.13);
+}
+
+.historyInfo{
+  text-align: center;
+  word-break: break-word;      /* Add this */
+  overflow-wrap: break-word;   /* Add this */
+  white-space: normal;         /* Ensure normal wrapping */
+}
+
+.historyListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.historyCardTime {
+  font-size: 1rem;
+  color: #1976d2;
+  margin-bottom: 0.7rem;
+  font-weight: 600;
+}
+
+.historyCardLink {
+  margin-top: auto;
+  color: #fff;
+  background: #1976d2;
+  padding: 0.5em 1.2em;
+  border-radius: 1.5em;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.historyCardLink:hover {
+  background: #125ea2;
+}
+
+
+
+@media (max-width: 575.98px) {
+  /* Your CSS here */
+  .historyListPage {
+    padding: .2rem;
+    padding-top: 1.1rem;
+  }
+
+  .historyList {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* One card per row on mobile */
+    padding: 0 .2rem;
+  }
+
+  .historyCard {
+    padding: .8rem;
+    width: 100%;
+    min-width: 0; /* Allow shrinking */
+    box-sizing: border-box;
+  }
+
+  .historyCardLink {
+    font-size: .8rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .backHomeLink {
+    top: 10px;
+    left: 5px;
+    padding: 0.4em 1em;
+    font-size: 0.8rem;
+  }
+
+  .historyInfo {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .historyListTitle {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+
+
+  .notLoginSection {
+    font-size: .8rem;
+  }
+
+  .notLoginText {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+
+  .loginInputSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginInput {
+    font-size: .9rem;
+    width: 15rem;
+    height: 2rem;
+  }
+
+
+  .registerSection {
+    width: 100%;
+    padding: 0;
+  }
+
+  .registerText {
+    padding: .2rem;
+    text-decoration: underline;
+  }
+
+  .registerNotes {
+    font-size: .8rem;
+  }
+
+  .registerNoteItem {
+    padding: .3rem;
+  }
+
+  .registerInputFieldsGroup {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .registerInput {
+    font-size: .9rem;
+    width: 15rem;
+    height: 2rem;
+  }
+
+}
+
+/* Small devices (phones landscape, 576px and up) */
+@media (min-width: 576px) and (max-width: 830px) {
+  /* Your CSS here */
+  .historyListPage {
+    padding: .2rem;
+    padding-top: 1.1rem;
+  }
+
+  .historyList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: .4rem;
+    margin-top: 2rem;
+    padding: .5rem 0.4rem;
+  }
+
+  .historyCard {
+    padding: .8rem;
+    width: 100%;
+    min-width: 0; /* Allow shrinking */
+    box-sizing: border-box;
+  }
+
+  .historyCardLink {
+    font-size: .8rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .backHomeLink {
+    top: 10px;
+    left: 5px;
+    padding: 0.4em 1em;
+    font-size: 0.8rem;
+  }
+
+  .historyInfo {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .historyListTitle {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+
+
+  .notLoginSection {
+    font-size: .8rem;
+  }
+
+  .notLoginText {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+
+  .loginInputSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginInput {
+    font-size: .9rem;
+    width: 15rem;
+    height: 2rem;
+  }
+
+
+  .registerSection {
+    width: 100%;
+    padding: 0;
+  }
+
+  .registerText {
+    padding: .2rem;
+    text-decoration: underline;
+  }
+
+  .registerNotes {
+    font-size: .8rem;
+  }
+
+  .registerNoteItem {
+    padding: .3rem;
+  }
+
+  .registerInputFieldsGroup {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .registerInput {
+    font-size: .9rem;
+    width: 15rem;
+    height: 2rem;
+  }
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Your CSS here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Your CSS here */
+}

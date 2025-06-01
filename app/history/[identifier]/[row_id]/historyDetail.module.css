@@ -1,0 +1,194 @@
+.historyDetailPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+
+}
+
+
+.question_body {
+    width: 100%;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.historyLink {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 9999;
+  background: #fff;
+  color: #1976d2;
+  padding: 0.5em 1.2em;
+  border-radius: 1.5em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  text-decoration: underline;
+  transition: background 0.2s, color 0.2s;
+}
+
+.historyLink:hover {
+  background: #1976d2;
+  color: #fff;
+  text-decoration: none;
+}
+
+.question_html {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', 'Open Sans', Arial, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: #232323;
+  margin-bottom: 1.2em;
+  padding: 0.7em 1em;
+  background: #f8fafc;
+  border-radius: 8px;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+.option_body {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Open Sans', Arial, sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: #232323;
+    border-radius: 8px;
+    word-break: break-word;
+    box-sizing: border-box;
+    padding-top: 1rem;
+}
+
+.button_grouping {
+    width: 100%;
+    padding: .5rem 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.exam_page_section {
+  width: 100%;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.prevBtn, .nextBtn {
+  border: none;
+  border-radius: 2em;
+  padding: 0.7em 2.2em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(72, 191, 227, 0.08);
+  transition: 
+    background-position 0.35s cubic-bezier(.4,0,.2,1),
+    transform 0.13s;
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+}
+
+.prevBtn {
+  background: linear-gradient(90deg, #adb5bd 0%, #48bfe3 100%);
+}
+
+.prevBtn:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.nextBtn {
+  background: linear-gradient(90deg, #3a86ff 0%, #4361ee 100%);
+}
+
+.nextBtn:hover {
+  background-position: 100% 0;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
+
+.label_self{
+  font-size: 1.2rem;
+
+}
+
+.correctOption {
+  background-color: #90EE90;
+}
+
+.incorrectOption {
+  background-color: #FA8072;
+}
+
+
+@media (max-width: 575.98px) {
+  /* Your CSS here */
+
+    .historyDetailPage h1 {
+        padding-top: .5rem;
+        font-size: 1.2rem;
+    }
+    .historyDetailPage h2 {
+        font-size: 1.1rem;
+        padding-top: .5rem;
+    }
+
+    .button_grouping {
+        padding-top: 1rem;
+        padding-bottom: .1rem;
+    }
+
+    .nextBtn, .prevBtn {
+        font-size: .8rem;
+        padding: 0.5em 1.5em;
+    }
+
+    .question_body {
+        padding-bottom: .1rem;
+    }
+    
+
+    .question_html {
+        font-size: .85rem;
+    }
+
+    .label_self{
+        font-size: 0.8rem;
+    }
+
+    .optionLabel {
+        font-size: 1rem;
+        padding-bottom: .2rem;
+    }
+
+    .exam_page_section {
+      width: 100%;
+      padding: .2rem;
+      margin-bottom: .2rem;
+    }
+
+    .historyLink {
+      font-size: .7rem;
+      width: 6.5rem;
+    }
+
+}
+
+/* Small devices (phones landscape, 576px and up) */
+@media (min-width: 576px) and (max-width: 830px) {
+  /* Your CSS here */
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Your CSS here */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Your CSS here */
+}
