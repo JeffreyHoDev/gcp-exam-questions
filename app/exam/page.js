@@ -27,6 +27,8 @@ import Divider from '@mui/material/Divider';
 import Alert from '@mui/material/Alert';
 import clsx from 'clsx';
 
+import SaveQuestionPromptModal from "./save-question-modal.component";
+
 const handleCharToIndex = (char) => {
   let reference =  {
     "A": 0,
@@ -47,6 +49,7 @@ export default function ExamPage() {
   const [questions, setQuestions] = useState([])
   const [isFetching, setIsFetching] = useState(false)
   const [number, setNumber] = useState(0)
+  const [isSaved, setIsSaved] = useState(false)
   
   const [seconds, setSeconds] = useState(7200);
   const [isActive, setIsActive] = useState(true);
@@ -64,6 +67,14 @@ export default function ExamPage() {
   const [arrayOfIndexAnswerWrong, setArrayOfIndexAnswerWrong] = useState([])
   const handlePromptOpen = () => setPromptOpen(true);
   const handlePromptClose = () => setPromptOpen(false);
+
+  
+  const [savePromptOpen, setSavePromptOpen] = useState(false);
+  const handleSavePromptOpen = () => setSavePromptOpen(true);
+  const handleSavePromptClose = () => setSavePromptOpen(false);
+
+
+  const [isSavingQuestions, setIsSavingQuestions] = useState(false)
   // Fetches questions from the backend API and updates the state.
   // Handles errors by setting the error state and stopping the fetching indicator.
   const getData = async () => {
@@ -94,6 +105,38 @@ export default function ExamPage() {
     redirect('/')
 
   }
+
+  const saveQuestions = async (identifier) => {
+    setIsSavingQuestions(true)
+    try {
+      let response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/save_questions`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          identifier: identifier,
+          questions: questions,
+          scoreResult: scoreResult,
+        }),
+      })
+
+      let data = await response.json()
+      if(data.error){
+        alert(data.error)
+        setIsSavingQuestions(false)
+      }else if(data.message){
+        setIsSavingQuestions(false)
+        setIsSaved(true)
+        alert('Questions saved successfully')
+        handleSavePromptClose()
+      }
+    }
+    catch(err) {
+      console.error('Error saving questions:', err)
+    }
+  }
+
 
 
   useEffect(() => {
@@ -433,10 +476,17 @@ export default function ExamPage() {
                 {
                   submitted ? <button className={styles.submit_btn} onClick={() => resetAllData()}>Try again</button> : <button className={styles.submit_btn} onClick={() => handlePromptOpen()}>Submit</button>
                 }
+                {
+                  submitted ? isSaved ? null : <button className={styles.save_btn} disabled={isSaved} onClick={() => handleSavePromptOpen()}>Save</button> : null
+                }
+                {
+                  isSaved ? <p className={styles.saveNotify}>You have saved the exam</p> : null
+                }
               </div>
             )}
             <div><ResultModal calculatingScore={calculatingScore} open={open} scoreResult={scoreResult} handleClose={handleClose} resetAllData={resetAllData}/></div>
             <div><PromptModal setIsSubmitted={setIsSubmitted} promptOpen={promptOpen} handlePromptClose={handlePromptClose}/></div>
+            <div><SaveQuestionPromptModal isSavingQuestions={isSavingQuestions} saveQuestions={saveQuestions} handleSavePromptClose={handleSavePromptClose} savePromptOpen={savePromptOpen} scoreResult={scoreResult}/></div>
           </div>
         )
       }

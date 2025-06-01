@@ -133,6 +133,11 @@ a.secondary {
   
 }
 
+.saveNotify {
+  padding-top: 1.2rem;
+  color: #38b000;
+}
+
 .exam_questions_selection {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -176,6 +181,27 @@ a.secondary {
 
 }
 
+.historyLink {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 9999;
+  background: #fff;
+  color: #1976d2;
+  padding: 0.5em 1.2em;
+  border-radius: 1.5em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  text-decoration: underline;
+  transition: background 0.2s, color 0.2s;
+}
+
+.historyLink:hover {
+  background: #1976d2;
+  color: #fff;
+  text-decoration: none;
+}
+
 .prevBtn, .nextBtn {
   border: none;
   border-radius: 2em;
@@ -213,8 +239,9 @@ a.secondary {
 }
 .submit_btn_section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding-top: .8rem;
   padding-bottom: 1rem;
 }
@@ -241,6 +268,30 @@ a.secondary {
   background: linear-gradient(90deg, #38b000 0%, #43aa8b 100%);
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 8px 24px rgba(67, 170, 139, 0.22);
+}
+
+.save_btn {
+  background: linear-gradient(90deg, #ffb300 0%, #ff9100 100%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 700;
+  padding: 0.9em 2.5em;
+  border: none;
+  border-radius: 2em;
+  box-shadow: 0 4px 18px rgba(255, 179, 0, 0.15);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 2rem;
+  letter-spacing: 1px;
+  outline: none;
+  display: inline-block;  
+}
+
+.save_btn:hover,
+.save_btn:focus {
+  background: linear-gradient(90deg, #ff9100 0%, #ffb300 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(255, 179, 0, 0.22);
 }
 
 .loading {
@@ -299,6 +350,33 @@ a.secondary {
 
 .incorrectOption {
   background-color: #FA8072;
+}
+
+.promptInput {
+  width: 100%;
+  max-width: 320px;
+  font-size: 1.1rem;
+  padding: 14px 16px 10px 16px;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  background: #f5f5fa;
+  box-shadow: 0 2px 0 0 #1976d2;
+  margin: 1.2rem auto 0.5rem auto;
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s;
+  color: #22223b;
+  display: block;
+}
+
+.promptInput:focus {
+  background: #e3f2fd;
+  box-shadow: 0 2px 0 0 #1565c0;
+}
+
+.promptInput::placeholder {
+  color: #757575;
+  font-size: 1rem;
+  opacity: 1;
 }
 
 
@@ -382,7 +460,7 @@ a.secondary {
     padding-bottom: .5rem;
   }
 
-  .submit_btn {
+  .submit_btn, .save_btn {
     font-size: .8rem;
     padding: 0.5em 1.5em;
   }
@@ -423,6 +501,14 @@ a.secondary {
 
   .legend {
     display: none;
+  }
+
+  .listItems {
+    padding: 2rem;
+  }
+
+  .important {
+    padding: 2rem;
   }
 
 }

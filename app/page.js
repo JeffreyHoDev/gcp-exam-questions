@@ -6,6 +6,7 @@ export default function Home() {
   
   return (
     <div className={styles.page}>
+      <Link href="/history" className={styles.historyLink}>History (Beta)</Link>
       <div>
         <h1 className={styles.title}>GCP Cloud Architecture Exam</h1>
       </div>
@@ -23,7 +24,10 @@ export default function Home() {
           <li>It is recommended to use a desktop instead of a mobile device, as some questions involve images that may not display well on mobile screens.</li>
           <li>Clicking &apos;Go back&apos; in the browser will reset all questions. Please avoid doing this while attempting the exam</li>
           <li>Clicking the submit button will move to the score calculation stage, so ensure you have attempted all questions before submitting</li>
-        </ul>
+          <li>
+            If you plan to save your questions after attempting them, please click the &apos;History (Beta)&apos; button at the top right corner. Register a unique identifier to log in; you will need it to save your questions.
+          </li>        
+          </ul>
       </div>
       <div>
         <Link href="/exam"><button className={styles.startbtn}>Start</button></Link>
