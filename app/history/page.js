@@ -200,6 +200,7 @@ export default function HistoryListPage() {
                                 <li className={styles.registerNoteItem}>Create a unique identifier, you will reuse it to store your history questions</li>
                                 <li className={styles.registerNoteItem}>Use the created identifier to login in the future</li>
                                 <li className={styles.registerNoteItem}>Please be aware anyone with your identifier will be able to see your history questions, since we didn&apos;t request password for verification</li>
+                                <li className={styles.registerNoteItem}>An email will be sent if you provide a valid email address</li>
                             </ul>
                             <div className={styles.registerInputSection}>
                                 <div className={styles.registerInputFieldsGroup}>
