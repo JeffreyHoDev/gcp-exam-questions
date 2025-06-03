@@ -6,7 +6,7 @@ export default function Home() {
   
   return (
     <div className={styles.page}>
-      <Link href="/history" className={styles.historyLink}>History (Beta)</Link>
+      {/* <Link href="/history" className={styles.historyLink}>History (Beta)</Link> */}
       <div>
         <h1 className={styles.title}>GCP Cloud Architecture Exam</h1>
       </div>
