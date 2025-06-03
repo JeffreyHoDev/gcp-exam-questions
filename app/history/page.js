@@ -17,9 +17,11 @@ export default function HistoryListPage() {
 
     const [registerIdentifier, setRegisterIdentifier] = useState('');
     const [registerEmail, setRegisterEmail] = useState('');
+    const [registerPassword, setRegisterPassword] = useState('');
     const [isRegistering, setIsRegistering] = useState(false);
 
     const [loginIdentifier, setLoginIdentifier] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
     const [isLoggingIn, setIsLoggingIn] = useState(false);
     useEffect(() => {
         const handleUnload = () => {
@@ -43,7 +45,8 @@ export default function HistoryListPage() {
                 },
                 body: JSON.stringify({
                     identifier: registerIdentifier,
-                    registerEmail: registerEmail
+                    registerEmail: registerEmail,
+                    password: registerPassword
                 }),
             })
             const data = await response.json();
@@ -72,7 +75,8 @@ export default function HistoryListPage() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    identifier: loginIdentifier
+                    identifier: loginIdentifier,
+                    password: loginPassword
                 }),
             });
             const data = await response.json();
@@ -191,24 +195,25 @@ export default function HistoryListPage() {
                         <h2 className={styles.notLoginText}>You haven&apos;t login. Please provide your unique identifier to view your saved history</h2>
                         <div className={styles.loginInputSection}>
                             {mounted && <input className={styles.loginInput} placeholder="Identifier*" onChange={(e) => setLoginIdentifier(e.target.value)} value={loginIdentifier}/>}
+                            {mounted && <input className={styles.loginInput} placeholder="Password*" type="password" onChange={(e) => setLoginPassword(e.target.value)} value={loginPassword}/>}
                             
-                            <button onClick={login} disabled={isRegistering || loginIdentifier.length === 0} className={clsx(styles.loginBtn, loginIdentifier.length === 0 && styles.disableBtn)}>Login</button>
+                            <button onClick={login} disabled={isRegistering || loginIdentifier.length === 0 || loginPassword.length === 0} className={clsx(styles.loginBtn, (loginIdentifier.length === 0 || loginPassword.length === 0) ? styles.disableBtn : "")}>Login</button>
                         </div>
                         <div className={styles.registerSection}>
                             <h3 className={styles.registerText}>If you don&apos;t have an identifier created before, please register first</h3>
                             <ul className={styles.registerNotes}>
                                 <li className={styles.registerNoteItem}>Create a unique identifier, you will reuse it to store your history questions</li>
                                 <li className={styles.registerNoteItem}>Use the created identifier to login in the future</li>
-                                <li className={styles.registerNoteItem}>Please be aware anyone with your identifier will be able to see your history questions, since we didn&apos;t request password for verification</li>
                                 <li className={styles.registerNoteItem}>An email will be sent if you provide a valid email address</li>
                             </ul>
                             <div className={styles.registerInputSection}>
                                 <div className={styles.registerInputFieldsGroup}>
                                     {mounted && <input className={styles.registerInput} onChange={(e) => setRegisterIdentifier(e.target.value)}  placeholder="Identifier*" value={registerIdentifier}/>}
+                                    {mounted && <input className={styles.registerInput} placeholder="Password*" onChange={(e) => setRegisterPassword(e.target.value)} type="password" value={registerPassword}/>  }
                                     {mounted && <input className={styles.registerInput} placeholder="Email (Optional)" onChange={(e) => setRegisterEmail(e.target.value)} type="email" value={registerEmail}/>  }
                     
                                 </div>
-                                <button disabled={registerIdentifier.length === 0 || isRegistering ? true : false} className={clsx(styles.registerBtn, registerIdentifier.length === 0 && styles.disableBtn)} onClick={register}>Register</button>
+                                <button disabled={registerIdentifier.length === 0 || isRegistering ? true : false} className={clsx(styles.registerBtn, (registerIdentifier.length === 0 || registerPassword.length === 0) ? styles.disableBtn : "")} onClick={register}>Register</button>
                             </div>
                         </div>
                     </div>

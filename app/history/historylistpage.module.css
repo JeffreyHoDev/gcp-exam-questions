@@ -76,6 +76,7 @@
 .loginInputSection {
 
     display: flex;
+    flex-direction: column;
     padding: 1.3rem;
     align-items: center;
     justify-content: center;
@@ -294,6 +295,7 @@
     font-size: .9rem;
     width: 15rem;
     height: 2rem;
+    margin-right: .5rem;
   }
 
 

@@ -33,7 +33,7 @@ const buttonGroup = {
   paddingTop: '3em'
 }
 
-export default function SaveQuestionPromptModal({ isSavingQuestions, saveQuestions, savePromptOpen, handleSavePromptClose, scoreResult }) {
+export default function SaveQuestionPromptModal({ setPassword, password, isSavingQuestions, saveQuestions, savePromptOpen, handleSavePromptClose, scoreResult }) {
   const [identifier, setText] = useState('');
   return (
     <div>
@@ -52,8 +52,15 @@ export default function SaveQuestionPromptModal({ isSavingQuestions, saveQuestio
             onChange={(e) => setText(e.target.value)}
             value={identifier}
             />
+          <input
+            className={styles.promptInput}
+            placeholder="Password*"
+            type='password'
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            />
           <div style={buttonGroup}>
-            <Button variant="contained" disabled={isSavingQuestions || identifier.length === 0} onClick={() => saveQuestions(identifier)}>Save  {isSavingQuestions ? <CircularProgress color="inherit" /> : ""}</Button>
+            <Button variant="contained" disabled={isSavingQuestions || identifier.length === 0 || password.length === 0} onClick={() => saveQuestions(identifier, password)}>Save  {isSavingQuestions ? <CircularProgress color="inherit" /> : ""}</Button>
             <Button variant="contained" disabled={isSavingQuestions} onClick={() => handleSavePromptClose()}>Close</Button>
           </div>
         </Box>

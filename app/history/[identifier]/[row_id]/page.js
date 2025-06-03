@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { useParams } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
@@ -56,12 +56,23 @@ const compareChoicesAndAnswersForMultipleChoices = (answerArray, optionIndex) =>
 
 
 export default function HistoryDetailPage () {
+    const router = useRouter();
     const { identifier, row_id } = useParams();
     const [historyDetail, setHistoryDetail] = useState(null);
     const [loading, setLoading] = useState(true);
     const [number, setNumber] = useState(0)
-    
     const [arrayOfIndexAnswerWrong, setArrayOfIndexAnswerWrong] = useState([])
+
+
+    useEffect(() => {
+        const loginIdentity = sessionStorage.getItem('loginIdentity');
+        const loginID = sessionStorage.getItem('loginID');
+        if (!loginIdentity || !loginID) {
+            router.replace('/history');
+        }
+    }, [router]);
+
+
     const calcScore = () => {
 
         historyDetail.questions.map((question, index) => {

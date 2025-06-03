@@ -70,6 +70,7 @@ export default function ExamPage() {
 
   
   const [savePromptOpen, setSavePromptOpen] = useState(false);
+  const [password, setPassword] = useState("")
   const handleSavePromptOpen = () => setSavePromptOpen(true);
   const handleSavePromptClose = () => setSavePromptOpen(false);
 
@@ -106,7 +107,7 @@ export default function ExamPage() {
 
   }
 
-  const saveQuestions = async (identifier) => {
+  const saveQuestions = async (identifier, password) => {
     setIsSavingQuestions(true)
     try {
       let response = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND}/save_questions`, {
@@ -118,6 +119,7 @@ export default function ExamPage() {
           identifier: identifier,
           questions: questions,
           scoreResult: scoreResult,
+          password: password
         }),
       })
 
@@ -486,7 +488,7 @@ export default function ExamPage() {
             )}
             <div><ResultModal calculatingScore={calculatingScore} open={open} scoreResult={scoreResult} handleClose={handleClose} resetAllData={resetAllData}/></div>
             <div><PromptModal setIsSubmitted={setIsSubmitted} promptOpen={promptOpen} handlePromptClose={handlePromptClose}/></div>
-            <div><SaveQuestionPromptModal isSavingQuestions={isSavingQuestions} saveQuestions={saveQuestions} handleSavePromptClose={handleSavePromptClose} savePromptOpen={savePromptOpen} scoreResult={scoreResult}/></div>
+            <div><SaveQuestionPromptModal setPassword={setPassword} password={password} isSavingQuestions={isSavingQuestions} saveQuestions={saveQuestions} handleSavePromptClose={handleSavePromptClose} savePromptOpen={savePromptOpen} scoreResult={scoreResult}/></div>
           </div>
         )
       }
