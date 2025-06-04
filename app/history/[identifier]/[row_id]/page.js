@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-
+import HelpIcon from '@mui/icons-material/Help';
+import Tooltip from '@mui/material/Tooltip';
 import styles from "./historyDetail.module.css";
 
 import Image from "next/image";
@@ -232,6 +233,18 @@ export default function HistoryDetailPage () {
                 </Box>
             </div>
             <div className={styles.question_body}>
+                {historyDetail.questions.length > 0 ? 
+                    <div className={styles.id_help}>
+                        <div className={styles.question_id}>
+                            <p>QID: {historyDetail.questions[number]["id"]}</p> 
+                            <Tooltip disableFocusListener title="Please share the question ID to jeffreyhodev@gmail.com if particular question has bug or any kind of issue">
+                            <HelpIcon style={{'paddingLeft': '5px'}}/>
+                            </Tooltip>
+                        </div>
+                    </div> 
+                :
+                null
+                }
                 <Paper elevation={10} sx={{padding: '20px 20px'}}>
                     <p className={styles.question_html} dangerouslySetInnerHTML={{ __html: `${number+1}. ${historyDetail.questions[number]["questions"]}` }}></p>
                     {!idWithQuestionImage.includes(historyDetail.questions[number]["id"]) ? null : historyDetail.questions[number]["id"] >= 239 ? <div style={{'position': 'relative', 'height': '200px', 'width': '500px'}}><Image src={`/images/question${240}_image.png`} style={{ objectFit: 'contain' }} fill={true} alt="question image"/></div> : <QuestionImage questionId={historyDetail.questions[number]["id"]}/>}
