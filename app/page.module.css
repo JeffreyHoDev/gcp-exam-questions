@@ -87,6 +87,18 @@
   padding-bottom: 1.2em;
 }
 
+.id_help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question_id {
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
 .button {
   padding-left: 3em;
   padding-right: 3em;
@@ -155,7 +167,7 @@ a.secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem ;
+  padding: 1.1rem ;
 }
 
 .timer {
@@ -473,6 +485,10 @@ a.secondary {
   .resultModal_text {
     font-size: 1.2rem;
     padding: 1rem;
+  }
+
+  .id_help {
+    display: none;
   }
 
 }

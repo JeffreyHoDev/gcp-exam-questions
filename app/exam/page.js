@@ -26,6 +26,8 @@ import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Alert from '@mui/material/Alert';
 import clsx from 'clsx';
+import HelpIcon from '@mui/icons-material/Help';
+import Tooltip from '@mui/material/Tooltip';
 
 import SaveQuestionPromptModal from "./save-question-modal.component";
 
@@ -374,6 +376,18 @@ export default function ExamPage() {
                 {
                   questions.length > 0 ? <div className={styles.timer_section}><Timer timesUpHandler={timesUpHandler} seconds={seconds} setIsActive={setIsActive} setSeconds={setSeconds} isActive={isActive} /></div> : null
                 }
+                {
+                  questions.length > 0 ?     
+                  <div className={styles.id_help}>
+                    <div className={styles.question_id}>
+                      <p>QID: {questions[number]["id"]}</p> 
+                      <Tooltip disableFocusListener title="Please share the question ID to jeffreyhodev@gmail.com if particular question has bug or any kind of issue">
+                        <HelpIcon style={{'paddingLeft': '5px'}}/>
+                      </Tooltip>
+                    </div>
+                  </div>            
+                  : null
+                }
               {
                 questions.length > 0 ? (
                 <div className={styles.question_body}>
@@ -433,7 +447,7 @@ export default function ExamPage() {
                                     key={`${questions[number]["id"]}-single-${optionindex}`}
                                     value={optionindex}
                                     control={<Radio disabled={submitted} />}
-                                    label={<OptionImage questionId={questions[number]["id"]} index={optionindex} />}
+                                    label={<div style={{'position': 'relative', 'height': '100px', 'width': '500px'}}><OptionImage questionId={questions[number]["id"]} index={optionindex} /></div>}
                                   />
                                 );
                               })

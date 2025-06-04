@@ -33,7 +33,7 @@ export default function OptionImage({ questionId, index }) {
         alt="option image"
         fill
         style={{ objectFit: 'contain' }}
-        sizes="(max-width: 600px) 100vw, 500px"
+        sizes="(max-width: 300px) 100vw, 400px"
       />
     </div>
   );
